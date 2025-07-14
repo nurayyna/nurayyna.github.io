@@ -1,39 +1,50 @@
-import { Container, Title, Button, Center, Stack, Text } from '@mantine/core';
-import classes from '../style/Hero.module.css'
+import { Title, Button, Text, Container } from '@mantine/core';
+import classes from '../style/Hero.module.css';
 
-export default function Hero() {
+export default function Hero({
+  backgroundImage = '/images/home_hero_section.jpg',
+  title = 'Engineered Solution',
+  subtitle = 'Vibration analysis and condition monitoring for industrial equipment.',
+  buttonText = 'About us',
+  onButtonClick = () => {},
+  gradientFrom = 'indigo',
+  gradientTo = 'cyan',
+}) {
   return (
-    
-    <div className={classes.root}>
+    <div
+      className={classes.root}
+      style={{
+        backgroundImage: `
+          linear-gradient(250deg, rgba(130, 201, 30, 0) 0%, #062343 70%),
+          url(${backgroundImage})`,
+      }}
+    >
       <div className="container">
         <div className={classes.content}>
           <Title className={classes.title}>
-            An{' '}
             <Text
               component="span"
               inherit
               variant="gradient"
-              gradient={{ from: 'indigo', to: 'cyan' }}
-              size='xl'
+              gradient={{ from: gradientFrom, to: gradientTo }}
+              size="xl"
               fw={700}
             >
-              Engineered & Specialized 
+              {title}
             </Text>{' '}
-            Services
+            Provider
           </Title>
 
-          <Text className={classes.description}>
-            Build fully functional accessible web applications with ease – Mantine includes more
-            than 100 customizable components and hooks to cover you in any situation
-          </Text>
+          <Text className={classes.description}>{subtitle}</Text>
 
           <Button
             variant="gradient"
-            gradient={{ from: 'indigo', to: 'cyan' }}
+            gradient={{ from: gradientFrom, to: gradientTo }}
             size="xl"
             className={classes.control}
+            onClick={onButtonClick}
           >
-            Get started
+            {buttonText}
           </Button>
         </div>
       </div>

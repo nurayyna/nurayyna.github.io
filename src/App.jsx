@@ -6,9 +6,9 @@ import { MantineProvider } from '@mantine/core';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-// import Services from './pages/Services';
-// import Products from './pages/Products';
-// import Contact from './pages/Contact';
+import Services from './pages/Services';
+import Products from './pages/Products';
+import Contact from './pages/Contact';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './style/Global.css';
 
@@ -23,9 +23,9 @@ function App() {
         
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/services" element={<Services />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/contact" element={<Contact />} /> */}
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Router>
       {/* <div>
